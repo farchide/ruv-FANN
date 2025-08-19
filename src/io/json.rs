@@ -1,5 +1,7 @@
 //! JSON serialization support
 
+#![allow(dead_code)]
+
 use crate::io::error::IoResult;
 use serde::{Deserialize, Serialize};
 use std::io::{Read, Write};

@@ -1,5 +1,7 @@
 //! Streaming I/O for large datasets
 
+#![allow(dead_code)]
+
 use crate::io::error::{IoError, IoResult};
 use std::io::{BufRead, BufReader, Read};
 

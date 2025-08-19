@@ -8,10 +8,8 @@
 //! - Automatic fallback to CPU when GPU is unavailable
 
 use super::*;
-use crate::webgpu::backend::{
-    BackendSelector, ComputeBackend, ComputeProfile, MatrixSize, OperationType,
-};
-use crate::webgpu::{ComputeContext, ComputeError};
+use crate::webgpu::backend::ComputeBackend;
+use crate::webgpu::ComputeError;
 use num_traits::Float;
 use std::collections::HashMap;
 use std::sync::Arc;
@@ -704,7 +702,6 @@ pub fn get_gpu_capabilities() -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::NetworkBuilder;
 
     #[test]
     #[cfg_attr(miri, ignore = "Miri cannot handle WebGPU FFI calls")]

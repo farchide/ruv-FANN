@@ -114,7 +114,7 @@ where
 {
     backends: Vec<Box<dyn ComputeBackend<T>>>,
     performance_cache: HashMap<ComputeProfile, BackendType>,
-    fallback_chain: Vec<BackendType>,
+    _fallback_chain: Vec<BackendType>,
 }
 
 impl<T: Float + std::fmt::Debug> Clone for BackendSelector<T>
@@ -160,7 +160,7 @@ impl<T: Float + std::fmt::Debug + Send + Sync + 'static> BackendSelector<T> {
         Self {
             backends,
             performance_cache: HashMap::new(),
-            fallback_chain: vec![BackendType::WebGPU, BackendType::Simd, BackendType::Cpu],
+            _fallback_chain: vec![BackendType::WebGPU, BackendType::Simd, BackendType::Cpu],
         }
     }
 

@@ -1,6 +1,8 @@
 //! WebGPU Performance Monitoring System
 //! Real-time performance tracking and optimization for neural network operations
 
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 use std::time::{Duration, Instant};
 

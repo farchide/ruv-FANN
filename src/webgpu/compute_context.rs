@@ -8,7 +8,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use crate::webgpu::{
-    backend::{BackendSelector, BackendType, ComputeBackend},
+    backend::{BackendSelector, BackendType},
     error::{ComputeError, ComputeResult},
 };
 use crate::{ActivationFunction, Layer, Network};
@@ -70,6 +70,7 @@ struct PerformanceTracker {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 struct OptimizationEvent {
     timestamp: std::time::Instant,
     event_type: String,
@@ -315,10 +316,10 @@ impl<T: Float + Send + Sync + std::fmt::Debug + 'static> ComputeContext<T> {
     /// GPU-accelerated layer computation
     async fn compute_layer_gpu(
         &self,
-        layer: &Layer<T>,
-        weights: &[T],
-        inputs: &[T],
-        dims: MatrixDims,
+        _layer: &Layer<T>,
+        _weights: &[T],
+        _inputs: &[T],
+        _dims: MatrixDims,
     ) -> ComputeResult<Vec<T>>
     where
         T: Clone + num_traits::ToPrimitive + 'static,
@@ -521,6 +522,7 @@ impl<T: Float + Send + Sync + std::fmt::Debug + 'static> ComputeContext<T> {
     }
 
     /// Get backend switch count for DAA coordination
+    #[allow(dead_code)]
     fn get_backend_switch_count(&self) -> u64 {
         if let Ok(tracker) = self.performance_tracker.lock() {
             tracker.backend_switches.values().sum()
@@ -530,6 +532,7 @@ impl<T: Float + Send + Sync + std::fmt::Debug + 'static> ComputeContext<T> {
     }
 
     /// Calculate optimization score for DAA coordination
+    #[allow(dead_code)]
     fn calculate_optimization_score(&self) -> f32 {
         if let Ok(tracker) = self.performance_tracker.lock() {
             let total_operations = tracker.operation_counts.values().sum::<u64>();

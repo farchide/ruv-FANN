@@ -689,7 +689,7 @@ impl<T: Float + Send + Default> IntegrationTestSuite<T> {
 /// FANN compatibility validator
 pub struct FannCompatibilityValidator<T: Float> {
     compatibility_tests: Vec<CompatibilityTest<T>>,
-    api_coverage: HashMap<String, bool>,
+    _api_coverage: HashMap<String, bool>,
 }
 
 /// Individual compatibility test
@@ -709,7 +709,7 @@ impl<T: Float> FannCompatibilityValidator<T> {
     pub fn new() -> Self {
         Self {
             compatibility_tests: Vec::new(),
-            api_coverage: HashMap::new(),
+            _api_coverage: HashMap::new(),
         }
     }
 

@@ -24,9 +24,9 @@ pub struct MemoryPool<T: Float> {
     /// Count of currently allocated buffers
     allocated_count: usize,
     /// Buffer size for this pool
-    buffer_size: usize,
+    _buffer_size: usize,
     /// Pool name
-    name: String,
+    _name: String,
 }
 
 /// Memory usage statistics
@@ -137,8 +137,8 @@ impl<T: Float> MemoryPool<T> {
         Self {
             available: Vec::new(),
             allocated_count: 0,
-            buffer_size,
-            name,
+            _buffer_size: buffer_size,
+            _name: name,
         }
     }
 

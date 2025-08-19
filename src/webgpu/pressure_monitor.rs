@@ -8,6 +8,8 @@
 //! - Predictive analytics for proactive resource management  
 //! - DAA autonomous decision-making for optimization
 //! - Circuit breaker protection against memory exhaustion
+
+#![allow(dead_code)]
 //! - Historical analysis and trend prediction
 //! - Multi-tier pressure response strategies
 
@@ -71,9 +73,9 @@ pub struct PressureReading {
 #[derive(Debug)]
 pub struct PressurePredictor {
     historical_data: VecDeque<PressureReading>,
-    prediction_models: HashMap<PredictionModel, ModelState>,
-    ensemble_weights: HashMap<PredictionModel, f32>,
-    prediction_accuracy: HashMap<PredictionModel, f32>,
+    _prediction_models: HashMap<PredictionModel, ModelState>,
+    _ensemble_weights: HashMap<PredictionModel, f32>,
+    _prediction_accuracy: HashMap<PredictionModel, f32>,
     last_prediction: Option<PressurePrediction>,
 }
 
@@ -398,9 +400,9 @@ impl MemoryPressureMonitor {
 
         let predictor = Arc::new(Mutex::new(PressurePredictor {
             historical_data: VecDeque::new(),
-            prediction_models,
-            ensemble_weights,
-            prediction_accuracy: HashMap::new(),
+            _prediction_models: prediction_models,
+            _ensemble_weights: ensemble_weights,
+            _prediction_accuracy: HashMap::new(),
             last_prediction: None,
         }));
 

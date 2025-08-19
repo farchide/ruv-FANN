@@ -99,6 +99,7 @@ impl<T: Float + Send + Default> Quickprop<T> {
         }
     }
 
+    #[allow(dead_code)]
     fn calculate_quickprop_delta(
         &self,
         gradient: T,

@@ -976,6 +976,7 @@ impl<T: Float> CascadeTrainer<T> {
 
     // Parallel training helper
     #[cfg(feature = "parallel")]
+    #[allow(dead_code)]
     fn train_single_candidate_parallel(
         &self,
         _candidate: &mut CandidateNeuron<T>,
@@ -1071,6 +1072,7 @@ where
     T::FromStrRadixErr: Send + Sync,
 {
     /// Train candidates in parallel
+    #[allow(dead_code)]
     fn train_candidates_parallel(
         &mut self,
         candidates: &mut [CandidateNeuron<T>],
@@ -1111,6 +1113,7 @@ where
     }
 
     /// Train single candidate with provided data (thread-safe)
+    #[allow(dead_code)]
     fn train_single_candidate_with_data(
         &self,
         candidate: &mut CandidateNeuron<T>,
@@ -1149,6 +1152,7 @@ where
     }
 
     /// Calculate correlation with provided data
+    #[allow(dead_code)]
     fn calculate_candidate_correlation_with_data(
         &self,
         candidate: &CandidateNeuron<T>,
@@ -1177,6 +1181,7 @@ where
     }
 
     /// Update candidate weights (simplified for parallel)
+    #[allow(dead_code)]
     fn update_candidate_weights_simple(
         &self,
         candidate: &mut CandidateNeuron<T>,

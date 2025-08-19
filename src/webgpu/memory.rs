@@ -765,7 +765,7 @@ impl EnhancedGpuMemoryManager {
     }
 
     /// Allocate buffer with enhanced allocation strategy
-    pub fn allocate_buffer(&self, size: usize) -> ComputeResult<BufferHandle> {
+    pub fn allocate_buffer(&self, _size: usize) -> ComputeResult<BufferHandle> {
         #[cfg(feature = "gpu")]
         if let Some(ref pool) = self.advanced_pool {
             // Use advanced buffer pool
@@ -835,7 +835,7 @@ impl EnhancedGpuMemoryManager {
     }
 
     /// Deallocate buffer
-    pub fn deallocate_buffer(&self, handle: BufferHandle) -> ComputeResult<()> {
+    pub fn deallocate_buffer(&self, _handle: BufferHandle) -> ComputeResult<()> {
         #[cfg(feature = "gpu")]
         if let Some(ref _pool) = self.advanced_pool {
             // Look up buffer from our allocated buffers map

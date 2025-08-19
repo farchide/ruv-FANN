@@ -1,5 +1,7 @@
 //! Binary serialization support using bincode
 
+#![allow(dead_code)]
+
 use crate::io::error::{IoError, IoResult};
 use serde::{Deserialize, Serialize};
 use std::io::{Read, Write};
@@ -30,6 +32,7 @@ where
 
 /// Binary format configuration
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct BinaryConfig {
     /// Use little endian byte order
     pub little_endian: bool,
@@ -47,6 +50,7 @@ impl BinaryConfig {
     }
 
     /// Create a config optimized for size (variable length encoding)
+    #[allow(dead_code)]
     pub fn compact() -> Self {
         Self {
             little_endian: true,
@@ -55,6 +59,7 @@ impl BinaryConfig {
     }
 
     /// Create a config optimized for speed (fixed length encoding)
+    #[allow(dead_code)]
     pub fn fast() -> Self {
         Self {
             little_endian: true,
@@ -70,24 +75,27 @@ impl Default for BinaryConfig {
 }
 
 /// Binary reader with configuration
+#[allow(dead_code)]
 pub struct BinaryReader {
-    config: BinaryConfig,
+    _config: BinaryConfig,
 }
 
 impl BinaryReader {
     /// Create a new binary reader with default config
     pub fn new() -> Self {
         Self {
-            config: BinaryConfig::new(),
+            _config: BinaryConfig::new(),
         }
     }
 
     /// Create a new binary reader with custom config
+    #[allow(dead_code)]
     pub fn with_config(config: BinaryConfig) -> Self {
-        Self { config }
+        Self { _config: config }
     }
 
     /// Read data from a reader
+    #[allow(dead_code)]
     pub fn read<T, R>(&self, reader: &mut R) -> IoResult<T>
     where
         T: for<'de> Deserialize<'de>,
@@ -97,6 +105,7 @@ impl BinaryReader {
     }
 
     /// Read data with size limit to prevent memory exhaustion
+    #[allow(dead_code)]
     pub fn read_with_limit<T, R>(&self, reader: &mut R, limit: u64) -> IoResult<T>
     where
         T: for<'de> Deserialize<'de>,

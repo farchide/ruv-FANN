@@ -761,7 +761,6 @@ impl<T: Float + Send + Default> TrainingAlgorithm<T> for AdamW<T> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::Network;
 
     #[test]
     fn test_adam_creation() {

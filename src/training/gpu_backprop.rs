@@ -4,9 +4,8 @@
 //! enabling real neural network training on WebGPU.
 
 use super::*;
-use crate::webgpu::backend::{BackendSelector, ComputeBackend};
-use crate::webgpu::shaders::webgpu_shaders::ShaderType;
-use crate::webgpu::{ComputeContext, ComputeError};
+use crate::webgpu::backend::ComputeBackend;
+use crate::webgpu::ComputeError;
 use num_traits::Float;
 use std::sync::Arc;
 

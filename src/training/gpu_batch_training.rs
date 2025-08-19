@@ -4,9 +4,8 @@
 //! using WebGPU shaders for all operations to maximize performance.
 
 use super::*;
-use crate::webgpu::backend::{BackendSelector, ComputeBackend};
-use crate::webgpu::WebGPUBackend;
-use crate::webgpu::{ComputeContext, ComputeError};
+use crate::webgpu::backend::ComputeBackend;
+use crate::webgpu::ComputeError;
 use num_traits::Float;
 use std::sync::Arc;
 

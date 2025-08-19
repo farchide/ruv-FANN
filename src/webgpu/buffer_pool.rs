@@ -8,6 +8,8 @@
 //! - XLarge: > 100MB (massive model parameters)
 //!
 //! Key Features:
+
+#![allow(dead_code)]
 //! - Sub-millisecond allocation for cached buffers
 //! - Memory pressure monitoring and circuit breaker
 //! - Buffer coalescing for micro/small tiers
